@@ -20,6 +20,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.devjoliveira.jomovie.dto.MovieDTO;
 import com.devjoliveira.jomovie.services.MovieService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
@@ -41,6 +43,13 @@ public class MovieController {
 		return service.findById(id);
 	}
 
+	@Operation(description = "Create a new movie", summary = "Create a new movie", responses = {
+			@ApiResponse(description = "Created", responseCode = "201"),
+			@ApiResponse(description = "Bad Request", responseCode = "400"),
+			@ApiResponse(description = "Unauthorized", responseCode = "401"),
+			@ApiResponse(description = "Forbidden", responseCode = "403"),
+			@ApiResponse(description = "Unprocessable Entity", responseCode = "422")
+	})
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(produces = "application/json")
 	public ResponseEntity<MovieDTO> insert(@Valid @RequestBody MovieDTO dto) {
