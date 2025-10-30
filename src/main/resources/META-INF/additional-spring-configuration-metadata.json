@@ -1,0 +1,39 @@
+{
+  "properties": [
+    {
+      "name": "springdoc.api-docs.path",
+      "type": "java.lang.String",
+      "description": "A description for 'springdoc.api-docs.path'"
+    },
+    {
+      "name": "security.jwt.duration",
+      "type": "java.lang.String",
+      "description": "A description for 'security.jwt.duration'"
+    },
+    {
+      "name": "security.client-secret",
+      "type": "java.lang.String",
+      "description": "A description for 'security.client-secret'"
+    },
+    {
+      "name": "security.client-id",
+      "type": "java.lang.String",
+      "description": "A description for 'security.client-id'"
+    },
+    {
+      "name": "cors.origins",
+      "type": "java.lang.String",
+      "description": "A description for 'cors.origins'"
+    },
+    {
+      "name": "springdoc.swagger-ui.path",
+      "type": "java.lang.String",
+      "description": "A description for 'springdoc.swagger-ui.path'"
+    },
+    {
+      "name": "springdoc.swagger-ui.enabled",
+      "type": "java.lang.String",
+      "description": "A description for 'springdoc.swagger-ui.enabled'"
+    }
+  ]
+}
