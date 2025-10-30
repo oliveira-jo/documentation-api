@@ -20,10 +20,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.devjoliveira.jomovie.dto.MovieDTO;
 import com.devjoliveira.jomovie.services.MovieService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/movies")
+@Tag(name = "Movies", description = "Controller for Movie")
 public class MovieController {
 
 	@Autowired

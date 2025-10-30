@@ -11,10 +11,12 @@ import com.devjoliveira.jomovie.dto.MovieDTO;
 import com.devjoliveira.jomovie.dto.ScoreDTO;
 import com.devjoliveira.jomovie.services.ScoreService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/scores")
+@Tag(name = "Scores", description = "Controller for score movie")
 public class ScoreController {
 
 	@Autowired
