@@ -20,17 +20,17 @@ Referência: https://springdoc.org/
 @OpenAPIDefinition
 @Configuration
 public class OpenApiConfig {
-
+    
     @Bean
     public OpenAPI dsmovieAPI() {
         return new OpenAPI()
            .info(new Info()
-           .title("DSMovie API")
-           .description("DSMovie Reference Project")
+           .title("JOMovie API")
+           .description("JOMovie Reference Project")
            .version("v0.0.1")
            .license(new License()
            .name("Apache 2.0")
-           .url("https://github.com/devsuperior/dsmovie-ref")));
+           .url("https://github.com/oliveira-jo/documentation-api")));
     }
 }
 ```
