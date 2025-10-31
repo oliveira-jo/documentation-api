@@ -33,11 +33,18 @@ public class MovieController {
 	@Autowired
 	private MovieService service;
 
+	@Operation(description = "Get all movie", summary = "Find all movie", responses = {
+			@ApiResponse(description = "Ok", responseCode = "200")
+	})
 	@GetMapping(produces = "application/json")
 	public Page<MovieDTO> findAll(Pageable pageable) {
 		return service.findAll(pageable);
 	}
 
+	@Operation(description = "Get movie by id", summary = "Find a movie byt id", responses = {
+			@ApiResponse(description = "OK", responseCode = "200"),
+			@ApiResponse(description = "Not Found", responseCode = "404")
+	})
 	@GetMapping(value = "/{id}", produces = "application/json")
 	public MovieDTO findById(@PathVariable Long id) {
 		return service.findById(id);
@@ -58,6 +65,13 @@ public class MovieController {
 		return ResponseEntity.created(uri).body(dto);
 	}
 
+	@Operation(description = "Update a movie", summary = "Update a movie", responses = {
+			@ApiResponse(description = "Ok", responseCode = "200"),
+			@ApiResponse(description = "Unauthorized", responseCode = "401"),
+			@ApiResponse(description = "Forbidden", responseCode = "403"),
+			@ApiResponse(description = "Not Found", responseCode = "404"),
+			@ApiResponse(description = "Unprocessable Entity", responseCode = "422")
+	})
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping(value = "/{id}", produces = "application/json")
 	public ResponseEntity<MovieDTO> update(@PathVariable Long id, @Valid @RequestBody MovieDTO dto) {
@@ -65,6 +79,14 @@ public class MovieController {
 		return ResponseEntity.ok().body(dto);
 	}
 
+	@Operation(description = "Delete a movie by id", summary = "Delete a movie by id", responses = {
+			@ApiResponse(description = "Success", responseCode = "204"),
+			@ApiResponse(description = "Bad Request", responseCode = "400"),
+			@ApiResponse(description = "Unauthorized", responseCode = "401"),
+			@ApiResponse(description = "Forbidden", responseCode = "403"),
+			@ApiResponse(description = "Not Found", responseCode = "404"),
+			@ApiResponse(description = "Unprocessable Entity", responseCode = "422")
+	})
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@DeleteMapping(value = "/{id}", produces = "application/json")
 	public ResponseEntity<MovieDTO> delete(@PathVariable Long id) {
