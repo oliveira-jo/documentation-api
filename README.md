@@ -122,3 +122,19 @@ springdoc.api-docs.path=/api-docs
 ```
 - Acessar especificação: http://localhost:8080/api-docs
   
+### Validando o resultado do endpoint 
+- Swagger-parser
+- https://github.com/APIDevTools/swagger-parser
+- Validar Online << Not tested >>
+-  save in file into assets -> openAPI.json
+
+## Adicionando o readme no projeto:
+- Forma alternativa de gerar documentação da api
+- Acessar o serviço
+
+````
+readme.com 
+````
+- Fazer o uploado do arquivo salvo anteriormente
+- Navegar ou editar a documentação
+
