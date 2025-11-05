@@ -138,3 +138,6 @@ readme.com
 - Fazer o uploado do arquivo salvo anteriormente
 - Navegar ou editar a documentação
 
+# Versionamento de API - Exemplo básico
+- Usando URI
+- Usando Mydia Type
