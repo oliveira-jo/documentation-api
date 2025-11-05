@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.devjoliveira.jomovie.dto.MovieDTO;
+import com.devjoliveira.jomovie.dto.MovieGenreDTO;
 import com.devjoliveira.jomovie.services.MovieService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -34,6 +35,21 @@ public class MovieController {
 	@Autowired
 	private MovieService service;
 
+	// Version based in media type
+	// =============================================================================
+	// This end point need in header a key Accept with value
+	// application/vdn.devjoliveira.jomovie-v1+json
+	@GetMapping(produces = "application/vdn.devjoliveira.jomovie-v1+json")
+	public Page<MovieGenreDTO> findAllMovieGenre(Pageable pageable) {
+		return service.findAllMovieGenre(pageable);
+	}
+
+	@GetMapping(value = "/{id}", produces = "application/vdn.devjoliveira.jomovie-v1+json")
+	public MovieGenreDTO find(@PathVariable Long id) {
+		return service.findMovieGenreById(id);
+	}
+
+	// =============================================================================
 	@Operation(description = "Get all movie", summary = "Find all movie", responses = {
 			@ApiResponse(description = "Ok", responseCode = "200")
 	})

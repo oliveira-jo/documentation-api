@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f9011ead-d0b4-41d2-94a4-ebb77153645e",
+		"_postman_id": "775fd07a-fda5-441b-a3bb-d40142c541cb",
 		"name": "DSMovie",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26170376",
-		"_collection_link": "https://dsprod.postman.co/workspace/Java-Spring-aulas~5cff5d40-2e9f-4aee-8ebe-ac37cfad24c3/collection/26170376-f9011ead-d0b4-41d2-94a4-ebb77153645e?action=share&source=collection_link&creator=26170376"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28475730"
 	},
 	"item": [
 		{
@@ -29,23 +28,11 @@
 					"request": {
 						"auth": {
 							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "{{client-id}}",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "{{client-secret}}",
-									"type": "string"
-								},
-								{
-									"key": "showPassword",
-									"value": false,
-									"type": "boolean"
-								}
-							]
+							"basic": {
+								"username": "{{client-id}}",
+								"password": "{{client-secret}}",
+								"showPassword": false
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -69,16 +56,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{host}}/oauth2/token",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"oauth2",
-								"token"
-							]
-						}
+						"url": "{{host}}/oauth2/token"
 					},
 					"response": []
 				}
@@ -99,16 +77,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{host}}/movies/1",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"movies",
-								"1"
-							]
-						}
+						"url": "{{host}}/movies/1"
 					},
 					"response": []
 				},
@@ -151,13 +120,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -170,15 +135,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/movies",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"movies"
-							]
-						}
+						"url": "{{host}}/movies"
 					},
 					"response": []
 				},
@@ -187,13 +144,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -206,16 +159,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{host}}/movies/3",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"movies",
-								"3"
-							]
-						}
+						"url": "{{host}}/movies/3"
 					},
 					"response": []
 				},
@@ -224,26 +168,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/movies/3",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"movies",
-								"3"
-							]
-						}
+						"url": "{{host}}/movies/3"
 					},
 					"response": []
 				}
@@ -257,13 +188,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -276,15 +203,131 @@
 								}
 							}
 						},
+						"url": "{{host}}/scores"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Docs",
+			"item": [
+				{
+					"name": "http://localhost:8080/api-docs",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api-docs"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies <<v1>>",
+			"item": [
+				{
+					"name": "Movie by id <<v1 - uri>>",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Origin",
+								"value": "http://localhost:3001",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{host}}/v1/movies/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Movies <<v1 - uri>>",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Origin",
+								"value": "https://meuapp.netlify.app",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"url": {
-							"raw": "{{host}}/scores",
+							"raw": "{{host}}/v1/movies?size=12&page=0",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"scores"
+								"v1",
+								"movies"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "12"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								}
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movies <<v1 - media type>>",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vdn.devjoliveira.jomovie-v1+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/movies?size=12&page=0",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "12"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movie by id <<v1 - media type>>",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vdn.devjoliveira.jomovie-v1+json",
+								"type": "text"
+							}
+						],
+						"url": "{{host}}/movies/1"
 					},
 					"response": []
 				}
