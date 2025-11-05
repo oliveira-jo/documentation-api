@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devjoliveira.jomovie.dto.MovieDTO;
+import com.devjoliveira.jomovie.dto.MovieGenreDTO;
 import com.devjoliveira.jomovie.entities.MovieEntity;
 import com.devjoliveira.jomovie.repositories.MovieRepository;
 import com.devjoliveira.jomovie.services.exceptions.DatabaseException;
@@ -31,10 +32,24 @@ public class MovieService {
 	}
 
 	@Transactional(readOnly = true)
+	public Page<MovieGenreDTO> findAllMovieGenre(Pageable pageable) {
+		Page<MovieEntity> result = repository.findAll(pageable);
+		Page<MovieGenreDTO> page = result.map(x -> new MovieGenreDTO(x));
+		return page;
+	}
+
+	@Transactional(readOnly = true)
 	public MovieDTO findById(Long id) {
 		MovieEntity result = repository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
 		return new MovieDTO(result);
+	}
+
+	@Transactional(readOnly = true)
+	public MovieGenreDTO findMovieGenreById(Long id) {
+		MovieEntity result = repository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
+		return new MovieGenreDTO(result);
 	}
 
 	@Transactional
